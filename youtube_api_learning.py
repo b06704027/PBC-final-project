@@ -69,6 +69,9 @@ video_ids = list(map(lambda x: x['snippet']['resourceId']['videoId'], videos))
 stats = get_videos_stats(video_ids)
 # print(stats)
 most_disliked = sorted(stats, key=lambda x: int(x['statistics']['dislikeCount']), reverse=True)
+# print(type(most_disliked))  #<class 'list'>
+
+
 for video in most_disliked:
-    # print(video['id'], video['statistics']['dislikeCount'])
-    print(type(video))
+    print(video['id'], video['statistics']['dislikeCount'])
+#  print(type(video))
