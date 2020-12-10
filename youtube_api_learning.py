@@ -70,5 +70,5 @@ stats = get_videos_stats(video_ids)
 # print(stats)
 most_disliked = sorted(stats, key=lambda x: int(x['statistics']['dislikeCount']), reverse=True)
 for video in most_disliked:
-    print(video['id'], video['statistics']['dislikeCount'])
-
+    # print(video['id'], video['statistics']['dislikeCount'])
+    print(type(video))
