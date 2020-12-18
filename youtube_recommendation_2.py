@@ -57,6 +57,8 @@ class YoutubeVideoSearch(tk.Frame):  # 影片搜尋頁
                                          variable=radio_value2, value=3)
         self.view = tk.Radiobutton(self, text="觀看次數", font=f2,
                                    variable=radio_value2, value=4)
+        self.title = tk.Radiobutton(self, text="依筆畫/字母排序", font=f2,
+                                   variable=radio_value2, value=5)
         
         self.go = tk.Button(self, command=self.click_go,
                             font=f3, text="GO", bg='#FFFACD',fg='#FF8C00')  # bg背景色；fg字體色
@@ -77,7 +79,9 @@ class YoutubeVideoSearch(tk.Frame):  # 影片搜尋頁
         self.date.grid(row=k +9, column=2, sticky=tk.W)
         self.view.grid(row=k + 10, column=2, sticky=tk.W)
         self.rating.grid(row=k + 10, column=1, sticky=tk.W)
-        self.go.grid(row=k +20, column=0, columnspan=4)
+        self.title.grid(row=k + 11, column=1, sticky=tk.W)
+        
+        self.go.grid(row=k +20, column=0, columnspan=4, padx=(80,0), pady=(40,0))
     
         
         
@@ -199,17 +203,17 @@ class SearchType(tk.Frame):  # 首頁(選擇搜尋類型)
         f3 = tkFont.Font(size=16, family="王漢宗細黑體繁")
         self.type_ = tk.Label(self, text="請選擇搜尋類型", font=f1, height=1, width=20)
  
-        self.video = tk.Button(self, text="影片", font=f3, bd=3,
+        self.video = tk.Button(self, text="影片", font=f3, bd=3, height=5, padx=30,
                                command=self.fun1, activeforeground="#E01B2D")  # 按下影片鍵 跑到影片搜尋頁
-        self.channel = tk.Button(self, text="頻道", font=f3, bd=3,
+        self.channel = tk.Button(self, text="頻道", font=f3, bd=3, height=5, padx=30,
                                  command=self.fun2, activeforeground="#E01B2D")  # 按下頻道鍵 跑到頻道搜尋頁
-        self.playlist = tk.Button(self, text="播放清單", font=f3, bd=3,
+        self.playlist = tk.Button(self, text="播放清單", font=f3, bd=3, height=5, padx=15,
                                   command=self.fun3, activeforeground="#E01B2D")  # 按下頻道鍵 跑到頻道搜尋頁
         j = 10
-        self.type_.grid(row=j + 4, column=0, sticky=tk.W)
-        self.video.grid(row=j + 5, column=1, sticky=tk.W)
-        self.channel.grid(row=j + 5, column=2, sticky=tk.W)
-        self.playlist.grid(row=j + 5, column=3, sticky=tk.W)        
+        self.type_.grid(row=j + 4, column=0, sticky=tk.W, pady=(0,40))
+        self.video.grid(row=j + 5, column=0, sticky=tk.E, padx=(0,40))
+        self.channel.grid(row=j + 5, column=1, sticky=tk.E, padx=(0,40))
+        self.playlist.grid(row=j + 5, column=2, sticky=tk.E)        
 
     def yt_icon(self):
         self.imageYT = ImageTk.PhotoImage(file="D:\\商管程\\final project\\PBC-final-project\\youtube_PNG6.png")
