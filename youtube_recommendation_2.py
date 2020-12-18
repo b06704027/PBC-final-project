@@ -42,11 +42,11 @@ class YoutubeVideoSearch(tk.Frame):  # 影片搜尋頁
         
         self.selection = tk.Label(self, text="篩選器",
                                   font=f1, height=1, width=10, bg="#FFA07A")
-        self.not_search = tk.Label(self, text="不要出現", font=f3, height=2, width=10)  # 不想看到的關鍵字
+        self.not_search = tk.Label(self, text="不要出現", font=f1, height=2, width=10)  # 不想看到的關鍵字
         self.not_search_content = tk.Entry(self, bd=3, font=f2, width=30)
         
         
-        self.order = tk.Label(self, text="排序依據", font=f3, height=1, width=10)
+        self.order = tk.Label(self, text="排序依據", font=f1, height=1, width=10)
         
         radio_value2 = tk.IntVar()
         self.relevance = tk.Radiobutton(self, text="關聯性", font=f2, 
@@ -175,14 +175,41 @@ class YoutubePlaylistSearch(tk.Frame):  # 播放清單搜尋頁
         self.playlist_ID =  tk.Label(self, text="輸入播放清單網址", font=f1, height=2, width=15) 
         self.playlist_ID_content = tk.Entry(self, bd=3,font=f2,width=40)
         
+        self.selection = tk.Label(self, text="篩選器",
+                                  font=f1, height=1, width=14, bg="#FFA07A")
+        
+        self.order = tk.Label(self, text="排序依據", font=f1, height=1, width=10)
+        
+        radio_value2 = tk.IntVar()
+        self.relevance = tk.Radiobutton(self, text="關聯性", font=f2, 
+                                        variable=radio_value2, value=1)
+        self.date = tk.Radiobutton(self, text="上傳日期", font=f2,
+                                   variable=radio_value2, value=2)
+        self.rating = tk.Radiobutton(self, text="喜愛程度", font=f2,
+                                         variable=radio_value2, value=3)
+        self.view = tk.Radiobutton(self, text="觀看次數", font=f2,
+                                   variable=radio_value2, value=4)
+        self.title = tk.Radiobutton(self, text="依筆畫/字母排序", font=f2,
+                                   variable=radio_value2, value=5)
+        
+        
         self.go = tk.Button(self, command=self.click_go,
                             font=f3, text="GO", bg='#FFFACD',fg='#FF8C00')  # bg背景色；fg字體色
         
         
         i = 3
-        self.playlist_ID.grid(row=i + 0, column=0, sticky= tk.W)
+        self.playlist_ID.grid(row=i + 0, column=0)
         self.playlist_ID_content.grid(row=i + 0, column=1, columnspan=2, ipady=8)
-        self.go.grid(row=i , column=3, columnspan=2)
+        self.selection.grid(row=i + 2, column=0, pady=(20,20))
+        k = 15
+        self.order.grid(row=k + 8, column=0) 
+        self.relevance.grid(row=k + 9, column=1, sticky=tk.W)
+        self.date.grid(row=k +9, column=2, sticky=tk.W)
+        self.view.grid(row=k + 10, column=2, sticky=tk.W)
+        self.rating.grid(row=k + 10, column=1, sticky=tk.W)
+        self.title.grid(row=k + 11, column=1, sticky=tk.W)
+        
+        self.go.grid(row=k +20, column=0, columnspan=4, padx=(80,0), pady=(40,0))
     
     def click_go(self):
         pass
