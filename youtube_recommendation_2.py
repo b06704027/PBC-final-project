@@ -235,12 +235,12 @@ class SearchType(tk.Frame):  # 首頁(選擇搜尋類型)
         self.channel = tk.Button(self, text="頻道", font=f3, bd=3, height=5, padx=30,
                                  command=self.fun2, activeforeground="#E01B2D")  # 按下頻道鍵 跑到頻道搜尋頁
         self.playlist = tk.Button(self, text="播放清單", font=f3, bd=3, height=5, padx=15,
-                                  command=self.fun3, activeforeground="#E01B2D")  # 按下頻道鍵 跑到頻道搜尋頁
+                                  command=self.fun3, activeforeground="#E01B2D")  # 按下播放清單鍵 跑到播放清單搜尋頁
         j = 10
         self.type_.grid(row=j + 4, column=0, sticky=tk.W, pady=(0,40))
         self.video.grid(row=j + 5, column=0, sticky=tk.E, padx=(0,40))
         self.channel.grid(row=j + 5, column=1, sticky=tk.E, padx=(0,40))
-        self.playlist.grid(row=j + 5, column=2, sticky=tk.E)        
+        self.playlist.grid(row=j + 5, column=2, sticky=tk.E)
 
     def yt_icon(self):
         self.imageYT = ImageTk.PhotoImage(file="D:\\商管程\\final project\\PBC-final-project\\youtube_PNG6.png")
